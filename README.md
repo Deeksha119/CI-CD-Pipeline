@@ -50,12 +50,10 @@ A complete demonstration of Application Lifecycle Management (ALM) with automate
 
  ALM Concepts Demonstrated
 
-- **Application Lifecycle Management**
 - **Continuous Integration/Continuous Deployment**
 - **Automated Testing & Quality Assurance**
 - **Version Control Best Practices**
 - **Infrastructure as Code**
-- **DevOps Principles**
 
  Live Demo
 
