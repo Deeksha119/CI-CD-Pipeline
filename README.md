@@ -1,4 +1,4 @@
-# BookHub - ALM CI/CD Pipeline Demo
+# BookHub - CI/CD Pipeline Demo
 
 ![CI/CD Pipeline](https://github.com/Deeksha119/ci-cd-pipeline/actions/workflows/ci-cd-pipeline.yml/badge.svg)
 ![GitHub Pages](https://img.shields.io/badge/deployed%20on-GitHub%20Pages-blue)
