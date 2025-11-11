@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BookHub - Digital Library Management</title>
+    <title>BookHub - ALM Demo</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -12,8 +12,7 @@
             <div class="logo">BookHub</div>
             <ul>
                 <li><a href="#home">Home</a></li>
-                <li><a href="#search">Search Books</a></li>
-                <li><a href="#manage">Manage Library</a></li>
+                <li><a href="#features">Features</a></li>
                 <li><a href="#about">About</a></li>
             </ul>
         </nav>
@@ -22,82 +21,32 @@
     <main>
         <section id="home" class="hero">
             <h1>Welcome to BookHub</h1>
-            <p>Your digital library management system powered by CI/CD</p>
-            <div class="stats">
-                <div class="stat">
-                    <span id="total-books">0</span>
-                    <p>Total Books</p>
-                </div>
-                <div class="stat">
-                    <span id="available-books">0</span>
-                    <p>Available</p>
-                </div>
-                <div class="stat">
-                    <span id="borrowed-books">0</span>
-                    <p>Borrowed</p>
-                </div>
-            </div>
+            <p>Your digital library management system</p>
+            <button class="cta-button">Get Started</button>
         </section>
 
-        <section id="search" class="search-section">
-            <h2>Search Books</h2>
-            <div class="search-container">
-                <input type="text" id="search-input" placeholder="Search by title, author, or genre...">
-                <button id="search-btn">Search</button>
-            </div>
-            <div id="search-results" class="books-grid">
-                <!-- Search results will appear here -->
-            </div>
-        </section>
-        
-
-        <section id="manage" class="management-section">
-            <h2>Manage Library</h2>
-            <div class="management-actions">
-                <button id="add-book-btn" class="action-btn">Add New Book</button>
-                <button id="view-all-btn" class="action-btn">View All Books</button>
-            </div>
-
-            
-            <div id="book-form" class="form-container" style="display: none;">
-                <h3>Add New Book</h3>
-                <form id="new-book-form">
-                    <input type="text" id="book-title" placeholder="Book Title" required>
-                    <input type="text" id="book-author" placeholder="Author" required>
-                    <input type="text" id="book-genre" placeholder="Genre">
-                    <input type="text" id="book-isbn" placeholder="ISBN">
-                    <button type="submit">Add Book</button>
-                    <button type="button" id="cancel-btn">Cancel</button>
-                </form>
-            </div>
-
-            <div id="all-books" class="books-grid">
-                <!-- All books will appear here -->
-            </div>
-        </section>
-
-        <section id="about" class="about-section">
-            <h2>About This Project</h2>
-            <div class="about-content">
-                <div class="about-card">
-                    <h3>CI/CD Pipeline</h3>
-                    <p>This application is automatically deployed through a complete CI/CD pipeline using GitHub Actions.</p>
+        <section id="features" class="features">
+            <h2>Features</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>Book Management</h3>
+                    <p>Easily add, remove, and categorize books</p>
                 </div>
-                <div class="about-card">
-                    <h3>Automated Testing</h3>
-                    <p>Every code change triggers automated tests and security checks before deployment.</p>
+                <div class="feature-card">
+                    <h3>User Dashboard</h3>
+                    <p>Track borrowed books and reading history</p>
                 </div>
-            
+                <div class="feature-card">
+                    <h3>Automated Reports</h3>
+                    <p>Generate usage statistics and reports</p>
+                </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>Version: <span id="version">1.1.0</span> | Last Deployed: <span id="deploy-date"></span></p>
-        <p>Deployed via Automated CI/CD Pipeline |  Demo Project</p>
-        <div class="pipeline-status">
-            <span id="pipeline-badge"> Pipeline: Operational</span>
-        </div>
+        <p>Version: <span id="version">1.0.0</span></p>
+        <p>Deployed via CI/CD Pipeline | ALM Demo Project</p>
     </footer>
 
     <script src="script.js"></script>
