@@ -15,15 +15,15 @@ A complete demonstration of Application Lifecycle Management (ALM) with automate
 
  Project Structure
 
- ci-cd-pipeline/
+ ci-cd-pipeline/  
 │
-├── .github/workflows/
-│ └── ci-cd-pipeline.yml # GitHub Actions CI/CD pipeline
-├── index.html # Main application
-├── styles.css # Styling
-├── script.js # Client-side logic
-├── package.json # Build configuration
-└── README.md # Documentation
+├── .github/workflows/  
+│ └── ci-cd-pipeline.yml # GitHub Actions CI/CD pipeline  
+├── index.html # Main application  
+├── styles.css # Styling  
+├── script.js # Client-side logic  
+├── package.json # Build configuration   
+└── README.md # Documentation 
 
 
  CI/CD Pipeline Stages
@@ -60,7 +60,7 @@ A complete demonstration of Application Lifecycle Management (ALM) with automate
  Live Demo
 
 The application is automatically deployed and available at:
-**https://Deeksha119.github.io/ci-cd-pipeline/**
+**https://deeksha119.github.io/CI-CD-Pipeline/**
 
  How to Use
 
