@@ -1,0 +1,14 @@
+{
+  "name": "bookhub ",
+  "version": "1.0.0",
+  "description": "A library management system demo with CI/CD pipeline",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Running tests...\" && exit 0",
+    "build": "echo \"Building application...\" && mkdir -p dist && cp *.html *.css *.js dist/",
+    "deploy": "echo \"Deployment would happen here\""
+  },
+  "keywords": ["ci-cd", "demo", "library"],
+  "author": "Deeksha",
+  "license": "MIT"
+}
