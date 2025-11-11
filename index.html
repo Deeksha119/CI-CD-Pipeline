@@ -3,101 +3,346 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BookHub - Digital Library Management</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Library Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        nav {
+            background-color: #444;
+            padding: 0.5rem;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 1rem;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        nav ul li a:hover {
+            background-color: #555;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        input, select, button {
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        table th, table td {
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        table th {
+            background-color: #f2f2f2;
+        }
+        .dashboard {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 2rem;
+        }
+        .stat {
+            background-color: #e9ecef;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            flex: 1;
+            margin: 0 0.5rem;
+        }
+        .hidden {
+            display: none;
+        }
+        .search-bar {
+            margin-bottom: 1rem;
+        }
+        .login-form {
+            max-width: 400px;
+            margin: 2rem auto;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <nav>
-            <div class="logo">BookHub</div>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#search">Search Books</a></li>
-                <li><a href="#manage">Manage Library</a></li>
-                <li><a href="#about">About</a></li>
-            </ul>
-        </nav>
+        <h1>Library Management System</h1>
     </header>
-
-    <main>
-        <section id="home" class="hero">
-            <h1>Welcome to BookHub</h1>
-            <p>Your digital library management system powered by CI/CD</p>
-            <div class="stats">
-                <div class="stat">
-                    <span id="total-books">0</span>
-                    <p>Total Books</p>
-                </div>
-                <div class="stat">
-                    <span id="available-books">0</span>
-                    <p>Available</p>
-                </div>
-                <div class="stat">
-                    <span id="borrowed-books">0</span>
-                    <p>Borrowed</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="search" class="search-section">
-            <h2>Search Books</h2>
-            <div class="search-container">
-                <input type="text" id="search-input" placeholder="Search by title, author, or genre...">
-                <button id="search-btn">Search</button>
-            </div>
-            <div id="search-results" class="books-grid">
-                <!-- Search results will appear here -->
-            </div>
-        </section>
-
-        <section id="manage" class="management-section">
-            <h2>Manage Library</h2>
-            <div class="management-actions">
-                <button id="add-book-btn" class="action-btn">Add New Book</button>
-                <button id="view-all-btn" class="action-btn">View All Books</button>
-            </div>
-            
-            <div id="book-form" class="form-container" style="display: none;">
-                <h3>Add New Book</h3>
-                <form id="new-book-form">
-                    <input type="text" id="book-title" placeholder="Book Title" required>
-                    <input type="text" id="book-author" placeholder="Author" required>
-                    <input type="text" id="book-genre" placeholder="Genre">
-                    <input type="text" id="book-isbn" placeholder="ISBN">
-                    <button type="submit">Add Book</button>
-                    <button type="button" id="cancel-btn">Cancel</button>
-                </form>
-            </div>
-
-            <div id="all-books" class="books-grid">
-                <!-- All books will appear here -->
-            </div>
-        </section>
-
-        <section id="about" class="about-section">
-            <h2>About This Project</h2>
-            <div class="about-content">
-                <div class="about-card">
-                    <h3>CI/CD Pipeline</h3>
-                    <p>This application is automatically deployed through a complete CI/CD pipeline using GitHub Actions.</p>
-                </div>
-                <div class="about-card">
-                    <h3>Automated Testing</h3>
-                    <p>Every code change triggers automated tests and security checks before deployment.</p>
-                </div>
-            
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>Version: <span id="version">1.1.0</span> | Last Deployed: <span id="deploy-date"></span></p>
-        <p>Deployed via Automated CI/CD Pipeline |  Demo Project</p>
-        <div class="pipeline-status">
-            <span id="pipeline-badge"> Pipeline: Operational</span>
+    <nav>
+        <ul>
+            <li><a href="#" onclick="showSection('dashboard')">Dashboard</a></li>
+            <li><a href="#" onclick="showSection('add-book')">Add Book</a></li>
+            <li><a href="#" onclick="showSection('view-books')">View Books</a></li>
+            <li><a href="#" onclick="showSection('borrow-return')">Borrow/Return</a></li>
+            <li><a href="#" onclick="logout()">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div id="login" class="login-form">
+            <h2>Login</h2>
+            <form onsubmit="login(event)">
+                <input type="text" id="username" placeholder="Username" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
         </div>
-    </footer>
+        <div id="dashboard" class="hidden">
+            <h2>Dashboard</h2>
+            <div class="dashboard">
+                <div class="stat">
+                    <h3>Total Books</h3>
+                    <p id="total-books">0</p>
+                </div>
+                <div class="stat">
+                    <h3>Borrowed Books</h3>
+                    <p id="borrowed-books">0</p>
+                </div>
+                <div class="stat">
+                    <h3>Available Books</h3>
+                    <p id="available-books">0</p>
+                </div>
+            </div>
+        </div>
+        <div id="add-book" class="hidden">
+            <h2>Add New Book</h2>
+            <form onsubmit="addBook(event)">
+                <input type="text" id="title" placeholder="Book Title" required>
+                <input type="text" id="author" placeholder="Author" required>
+                <input type="text" id="isbn" placeholder="ISBN" required>
+                <input type="number" id="quantity" placeholder="Quantity" required>
+                <button type="submit">Add Book</button>
+            </form>
+        </div>
+        <div id="view-books" class="hidden">
+            <h2>View Books</h2>
+            <div class="search-bar">
+                <input type="text" id="search" placeholder="Search by title, author, or ISBN" onkeyup="searchBooks()">
+            </div>
+            <table id="books-table">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>ISBN</th>
+                        <th>Quantity</th>
+                        <th>Available</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="books-body">
+                </tbody>
+            </table>
+        </div>
+        <div id="borrow-return" class="hidden">
+            <h2>Borrow or Return Book</h2>
+            <form onsubmit="borrowReturnBook(event)">
+                <select id="book-select" required>
+                    <option value="">Select Book</option>
+                </select>
+                <select id="action" required>
+                    <option value="borrow">Borrow</option>
+                    <option value="return">Return</option>
+                </select>
+                <input type="text" id="user-id" placeholder="User ID" required>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        let books = JSON.parse(localStorage.getItem('books')) || [];
+        let borrowed = JSON.parse(localStorage.getItem('borrowed')) || [];
+        let loggedIn = localStorage.getItem('loggedIn') || false;
 
-    <script src="script.js"></script>
+        function showSection(section) {
+            if (!loggedIn) {
+                alert('Please login first.');
+                return;
+            }
+            document.querySelectorAll('.container > div').forEach(div => div.classList.add('hidden'));
+            document.getElementById(section).classList.remove('hidden');
+            if (section === 'dashboard') updateDashboard();
+            if (section === 'view-books') displayBooks();
+            if (section === 'borrow-return') populateBookSelect();
+        }
+
+        function login(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            if (username === 'admin' && password === 'admin') {
+                loggedIn = true;
+                localStorage.setItem('loggedIn', true);
+                document.getElementById('login').classList.add('hidden');
+                showSection('dashboard');
+            } else {
+                alert('Invalid credentials');
+            }
+        }
+
+        function logout() {
+            loggedIn = false;
+            localStorage.removeItem('loggedIn');
+            document.getElementById('login').classList.remove('hidden');
+            document.querySelectorAll('.container > div').forEach(div => div.classList.add('hidden'));
+        }
+
+        function addBook(event) {
+            event.preventDefault();
+            const title = document.getElementById('title').value;
+            const author = document.getElementById('author').value;
+            const isbn = document.getElementById('isbn').value;
+            const quantity = parseInt(document.getElementById('quantity').value);
+            books.push({ title, author, isbn, quantity, available: quantity });
+            localStorage.setItem('books', JSON.stringify(books));
+            alert('Book added successfully!');
+            event.target.reset();
+            updateDashboard();
+        }
+
+        function displayBooks() {
+            const tbody = document.getElementById('books-body');
+            tbody.innerHTML = '';
+            books.forEach((book, index) => {
+                const row = `<tr>
+                    <td>${book.title}</td>
+                    <td>${book.author}</td>
+                    <td>${book.isbn}</td>
+                    <td>${book.quantity}</td>
+                    <td>${book.available}</td>
+                    <td><button onclick="deleteBook(${index})">Delete</button></td>
+                </tr>`;
+                tbody.innerHTML += row;
+            });
+        }
+
+        function searchBooks() {
+            const query = document.getElementById('search').value.toLowerCase();
+            const filtered = books.filter(book => 
+                book.title.toLowerCase().includes(query) ||
+                book.author.toLowerCase().includes(query) ||
+                book.isbn.toLowerCase().includes(query)
+            );
+            const tbody = document.getElementById('books-body');
+            tbody.innerHTML = '';
+            filtered.forEach((book, index) => {
+                const row = `<tr>
+                    <td>${book.title}</td>
+                    <td>${book.author}</td>
+                    <td>${book.isbn}</td>
+                    <td>${book.quantity}</td>
+                    <td>${book.available}</td>
+                    <td><button onclick="deleteBook(${index})">Delete</button></td>
+                </tr>`;
+                tbody.innerHTML += row;
+            });
+        }
+
+        function deleteBook(index) {
+            if (confirm('Are you sure you want to delete this book?')) {
+                books.splice(index, 1);
+                localStorage.setItem('books', JSON.stringify(books));
+                displayBooks();
+                updateDashboard();
+            }
+        }
+
+        function populateBookSelect() {
+            const select = document.getElementById('book-select');
+            select.innerHTML = '<option value="">Select Book</option>';
+            books.forEach((book, index) => {
+                select.innerHTML += `<option value="${index}">${book.title} by ${book.author}</option>`;
+            });
+        }
+
+        function borrowReturnBook(event) {
+            event.preventDefault();
+            const bookIndex = document.getElementById('book-select').value;
+            const action = document.getElementById('action').value;
+            const userId = document.getElementById('user-id').value;
+            const book = books[bookIndex];
+            if (action === 'borrow') {
+                if (book.available > 0) {
+                    book.available--;
+                    borrowed.push({ userId, bookIndex });
+                } else {
+                    alert('Book not available');
+                    return;
+                }
+            } else {
+                const borrowIndex = borrowed.findIndex(b => b.userId === userId && b.bookIndex == bookIndex);
+                if (borrowIndex !== -1) {
+                    book.available++;
+                    borrowed.splice(borrowIndex, 1);
+                } else {
+                    alert('No such borrow record');
+                    return;
+                }
+            }
+            localStorage.setItem('books', JSON.stringify(books));
+            localStorage.setItem('borrowed', JSON.stringify(borrowed));
+            alert(`${action} successful!`);
+            event.target.reset();
+            updateDashboard();
+        }
+
+        function updateDashboard() {
+            const total = books.reduce((sum, book) => sum + book.quantity, 0);
+            const borrowedCount = borrowed.length;
+            const available = total - borrowedCount;
+            document.getElementById('total-books').textContent = total;
+            document.getElementById('borrowed-books').textContent = borrowedCount;
+            document.getElementById('available-books').textContent = available;
+        }
+
+        // Initialize
+        if (loggedIn) {
+            document.getElementById('login').classList.add('hidden');
+            showSection('dashboard');
+        }
+    </script>
 </body>
 </html>
