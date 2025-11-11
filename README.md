@@ -60,7 +60,7 @@ A complete demonstration of Application Lifecycle Management (ALM) with automate
  Live Demo
 
 The application is automatically deployed and available at:
-**https://[Deeksha119].github.io/ci-cd-pipeline/**
+**https://Deeksha119.github.io/ci-cd-pipeline/**
 
  How to Use
 
@@ -70,5 +70,5 @@ The application is automatically deployed and available at:
 4. Watch the automated pipeline:
    - Tests run automatically
    - Application builds if tests pass
-   - Auto-deploys to production
+   - Auto-deploys to production.
 
